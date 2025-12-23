@@ -19,3 +19,5 @@ unsloth_compiled_cache/
 wandb/
 test.py
 dd.txt
+data/
+venv/
