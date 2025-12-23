@@ -1,0 +1,40 @@
+{
+  "_comment": "Unsloth 모드: python train_deepspeed.py --config ... | DeepSpeed 모드: deepspeed ... --deepspeed ds_config_zero3.json",
+  
+  "model_name": "./models/gemma-3-12b-it",
+  
+  "use_unsloth": true,
+  "use_4bit": true,
+  
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+  
+  "data_path": "./data/train.jsonl",
+  "eval_data_path": "",
+  "max_length": 768,
+  "max_samples": null,
+  "validation_split": 0.1,
+  
+  "num_epochs": 1,
+  "batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "learning_rate": 3e-4,
+  "warmup_steps": 0,
+  "lr_scheduler_type": "cosine",
+  "max_grad_norm": 1.0,
+  
+  "logging_steps": 5,
+  "save_steps": 25,
+  "eval_steps": 25,
+  "output_dir": "./models/output",
+  
+  "deepspeed": null,
+  "local_rank": -1,
+  
+  "use_wandb": true,
+  "wandb_project": "42Maru-amrs-qa",
+  "wandb_run_name": null
+}
+
